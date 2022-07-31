@@ -30,11 +30,26 @@
                     <input type="text" class="form-control" id="cityInput" placeholder="City Name" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="citySearchBtn">
-                            <img src="./assets/img/searchglass.png" width="20px"/></button>
+                            <img src="./assets/img/searchglass.png" width="25px"/></button>
                     </div>
                 </div>
+
+                    <!-- City Table -->
+                    <div class="list-group" id="cityList"></div>
             </div>
+
+            <!-- Weather Information Container -->
+            <div class="col-9">
+                <div class="card" style="width: 100%;" id="weatherContainer"></div>
+                    <div class="forecastContainer"></div>
+            </div>
+
         </div>
     </div>
+    <footer class="footer mt-auto py-3 text-center">
+        <div class="container">
+            <span class="text-muted">Here you can find a link to the source code for this application at <a href="https://github.com/Brevenn/module.6.whats-the-weather">Charles Glasgow</a></span>
+        </div>
+    </footer>
 </body>
 </html>
