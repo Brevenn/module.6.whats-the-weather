@@ -174,3 +174,40 @@ function searchHistory(searchValue) {
     }
 
 }
+
+// push the array for the search history into the sidebar
+function listArray(){
+
+    searchHistoryList.empty();
+
+
+    cityList.forEach(function(city){
+        var searchHistoryItem = $('<li class="list-group-item city-btn">');
+        searchHistoryItem.attr("data-value", city);
+        searchHistoryItem.text(city);
+        searchHistoryList.prepend(searchHistoryItem);
+    });
+
+    localStorage.setItem("cities", JSON.stringify(cityList));
+}
+
+// acquire the city list string from local storage
+function initializeHistory() {
+    if (localStorage.getItem("cities")) {
+        cityList = JSON.parse(localStorage.getItem("cities"));
+        var lastIndex = cityList.lemgth - 1;
+
+        listArray();
+
+        if (cityList.length !== 0) {
+            currentConditionsRequest(cityList[lastIndex]);
+            weatherContent.removeClass("hide");
+        }
+    }
+}
+
+function showClear() {
+    if (searchHistoryList.text() !== "") {
+        clearHistoryButton.removeClass("hide");
+    }
+}
