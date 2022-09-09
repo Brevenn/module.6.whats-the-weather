@@ -121,7 +121,7 @@ function currentConditionsRequest(searchValue) {
                 var forecastTemp = $("<p class='card-text mb-0'>");
                 var forecastHumidity = $("<p class='card-text mb-0'>");
 
-
+                // set up parameters for forecast
                 $('#five-day-forecast').append(forecastCol);
                 forecastCol.append(forecastCard);
                 forecastCard.append(forecastCardBody);
@@ -131,7 +131,46 @@ function currentConditionsRequest(searchValue) {
                 forecastCardBody.append(forecastTemp);
                 forecastCardBody.append(forecastHumidity);
 
-                
+                forecastIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+                forecastIcon.attr("alt", response.list[i].weather[0].main)
+                forecastDate.text(forecastDateString);
+                forecastTemp.text(response.list[i].main.temp);
+                forecastTemp.prepend("Temp: ");
+                forecastTemp.append("&deg;F");
+                forecastHumidity.text(response.list[i].main.humidity);
+                forecastHumidity.prepend("Humidity: ");
+                forecastHumidity.append("&");
+
             }
         });
+    });
+
 };
+
+// save search history user inputs
+function searchHistory(searchValue) {
+
+    if (searchValue) {
+
+        if (cityList.indexOf(searchValue) === -1) {
+            cityList.push(searchValue);
+
+
+            listArray();
+            clearHistoryButton.removeClass("hide");
+            weatherContent.removeClass("hide");
+
+        } else {
+
+            var removeIndex = cityList.indexOf(searchValue);
+            cityList.splice(removeIndex, 1);
+
+            cityList.push(searchValue);
+
+            listArray();
+            clearHistoryButton.removeClass("hide");
+            weatherContent.removeClass("hide");
+        }
+    }
+
+}
