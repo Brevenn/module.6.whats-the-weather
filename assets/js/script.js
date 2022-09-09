@@ -120,6 +120,17 @@ function currentConditionsRequest(searchValue) {
                 var forecastIcon = $("<img>");
                 var forecastTemp = $("<p class='card-text mb-0'>");
                 var forecastHumidity = $("<p class='card-text mb-0'>");
+
+
+                $('#five-day-forecast').append(forecastCol);
+                forecastCol.append(forecastCard);
+                forecastCard.append(forecastCardBody);
+
+                forecastCardBody.append(forecastDate);
+                forecastCardBody.append(forecastIcon);
+                forecastCardBody.append(forecastTemp);
+                forecastCardBody.append(forecastHumidity);
+
                 
             }
         });
