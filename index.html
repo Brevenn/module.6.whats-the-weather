@@ -13,9 +13,40 @@
 <body>
     
     <!-- WD Header Section -->
-    
+    <div class="container-fluid">
+        <div class="row navbar navbar-dark bg-dark">
+            <div class="col-12 text-center">
+                <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
+            </div>
+        </div>
 
             <!-- Search Bar for City Names -->
+        <div class="row content-row">
+            <div class="col-12 col-md-3 bg-light pt-3">
+                <h5>Search for a City:</h5>
+                <form>
+
+                    <!-- Search bar and button cdn styling -->
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control" id="search-city" placeholder="Type Your City Here">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="button" id="search-city-button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Search History container -->
+                <div class="card">
+                    <ul class="list-group list-group-flush" id="search-history-list"></ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
             
 
     
