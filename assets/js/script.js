@@ -89,8 +89,38 @@ function currentConditionsRequest(searchValue) {
         var lon = response.coord.lon;
         var UVurl = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon" + lon + "&appid" + APIkey;
 
+        // create an ajax call for the UV index
         $.ajax({
+            url: UVurl,
+            method: "GET"
+        }).then(function(response){
+        
+            UVindex.text(response.value);
+        });
 
-        })
-    
+        var countryCode = response.sys.country;
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + APIkey + "&lat" + lat + "&lon=" + lon;
+
+        // create an ajax call for the 5 day reading of the forecast
+        $.ajax({
+            url: forecastURL,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+            $('#five-day-forecast').empty();
+            for (var i = 1; i < response.list.length; i+=8){
+
+                var forecastDateString = moment(response.list[i].dt_txt).format("L");
+                console.log(forecastDateString);
+
+                var forecastCol = $("<div class='col-12 col -md-6 col-lg forecast-day mb-3'>");
+                var forecastCard = $("<div class='card'>");
+                var forecastCardBody = $("<div class='card-body'>");
+                var forecastDate = $("<h5 class='card-title'>");
+                var forecastIcon = $("<img>");
+                var forecastTemp = $("<p class='card-text mb-0'>");
+                var forecastHumidity = $("<p class='card-text mb-0'>");
+                
+            }
+        });
 };
