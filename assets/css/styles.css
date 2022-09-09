@@ -1,62 +1,16 @@
-/* Text Main Styling */
-h1 {
-    margin-top: -2rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 3rem;
-    font-weight: 500;
+html, body, .container-fluid, .content-row {
+    height: 100%;
 }
 
-p, a {
-    font-family: 'Monserrat', sans-serif;
+.hide {
+    display: none;
 }
 
-h3, h4, h5 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
+.city-btn:hover {
+    background-color: #a9a9a9;
+    cursor: pointer;
 }
 
-/* Header Main Styling */
-.jumbotron {
-    background-color: navy;
-    color: aliceblue;
-    height: 4rem;
-    margin-bottom: 0px;
-}
-
-/* Temperature and Info Container Main Styling */
-.low {
-    border-radius: 5px;
-    background-color: rgb(79, 122, 79);
-    padding: 6px;
-    color: white;
-}
-
-.moderate {
-    border-radius: 5px;
-    background-color: rgb(230, 230, 70);
-    padding: 6px;
-    color: dimgray;
-}
-
-.high {
-    border-radius: 5px;
-    background-color: rgb(175, 127, 37);
-    padding: 6px;
-    color: dimgray;
-}
-
-.vhigh {
-    border-radius: 5px;
-    background-color: rgb(184, 46, 46);
-    padding: 6px;
-    color: white;
-}
-
-/* Search Column Main Styling */
-.searchCol {
-    height: 100vh;
-    background-color: darkcyan;
-    padding-top: 1rem;
-    padding-right: 2rem;
-    margin-right: -1rem;
+.card {
+    background-color: #cce5ff
 }
