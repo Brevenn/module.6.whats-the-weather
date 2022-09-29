@@ -10,7 +10,7 @@ SO THAT I can plan a trip accordingly
 
 ### Application Example:
 
-![Image](/assets/img/06-server-side-apis-homework-demo.png)
+![Image](/assets/img/screenshot.png)
 
 ### Acceptance Criteria:
 
