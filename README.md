@@ -71,7 +71,7 @@ Repository contains a quality README file with description, screenshot, and link
 
 # Deployed Link:
 
-[What's The Weather](https://github.com/Brevenn/module.6.whats-the-weather)
+[What's The Weather](https://Brevenn.github.io/module.6.whats-the-weather)
 
 
 # References:
