@@ -8,6 +8,11 @@ AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 
+# Application Example:
+![Alt text](/posts/path/to/searchglass.png "Weather Example")
+
+
+
 # Acceptance Criteria:
 
 GIVEN a weather dashboard with form inputs
@@ -66,4 +71,19 @@ Repository contains a quality README file with description, screenshot, and link
 
 # Deployed Link:
 
+[What's The Weather](https://github.com/Brevenn/module.6.whats-the-weather)
 
+
+# References:
+
+Author:
+[Charles Breven Glasgow](https://github.com/Brevenn)
+[UT Coding Boot Camp of Austin](https://techbootcamps.utexas.edu/coding/)
+
+Languages:
+[HTML](https://www.w3schools.com/html/)
+[CSS](https://www.w3schools.com/css/default.asp)
+[JavaScript](https://www.javascript.com/)
+[OpenWeatherMap API](https://openweathermap.org/api)
+[JQuery](https://releases.jquery.com/)
+[Bootstrap](https://getbootstrap.com/)
