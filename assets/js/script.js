@@ -1,18 +1,19 @@
 // Create Elements that are easy to aceess
-
 var searchHistoryList = $('#search-history-list');
 var searchCityInput = $('#search-city');
 var searchCityButton = $('#search-city-button');
 var clearHistoryButton = $('#clear-history');
+
 var currentCity = $('#current-city');
 var currentTemp = $('#current-temp');
 var currentHumidity = $('#current-humidity');
 var currentWindSpeed = $('#current-wind-speed');
 var UVindex = $('#uvindex');
+
 var weatherContent = $('#weather-content');
 
 // Create access to the OpenWeatheAPI with a key
-var APIkey = "5be3557ebb9cca30f6bc2a24bf635be6";
+var APIkey = "c5bb6ce8042a15cd817e54238ee7b027";
 
 // Create a data array for cities
 var cityList = [];
@@ -99,14 +100,14 @@ function currentConditionsRequest(searchValue) {
         });
 
         var countryCode = response.sys.country;
-        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + APIkey + "&lat" + lat + "&lon=" + lon;
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
         // create an ajax call for the 5 day reading of the forecast
         $.ajax({
             url: forecastURL,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
+            console.log(333, response);
             $('#five-day-forecast').empty();
             for (var i = 1; i < response.list.length; i+=8){
 
@@ -139,7 +140,7 @@ function currentConditionsRequest(searchValue) {
                 forecastTemp.append("&deg;F");
                 forecastHumidity.text(response.list[i].main.humidity);
                 forecastHumidity.prepend("Humidity: ");
-                forecastHumidity.append("&");
+                forecastHumidity.append("&#8457;");
 
             }
         });

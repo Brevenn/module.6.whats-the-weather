@@ -1,89 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
     <title>Whats The Weather?</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <!-- WD Header Section -->
     <div class="container-fluid">
-        <div class="row navbar navbar-dark bg-dark">
-            <div class="col-12 text-center">
-                <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
+      <div class="row navbar navbar-dark bg-dark">
+        <div class="col-12 text-center">
+          <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
+        </div>
+      </div>
+
+      <!-- Search Bar for City Names -->
+      <div class="row content-row">
+        <div class="col-12 col-md-3 bg-light pt-3">
+          <h5>Search for a City:</h5>
+          <form>
+            <!-- Search bar and button cdn styling -->
+            <div class="form-group input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="search-city"
+                placeholder="Type Your City Here"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-info"
+                  type="button"
+                  id="search-city-button"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
             </div>
+          </form>
+
+          <!-- Search History container -->
+          <div class="card">
+            <ul
+              class="list-group list-group-flush"
+              id="search-history-list"
+            ></ul>
+            <button class="btn btn-sm btn-secondary" id="clear-history">
+              Clear Search History
+            </button>
+          </div>
         </div>
 
-            <!-- Search Bar for City Names -->
-        <div class="row content-row">
-            <div class="col-12 col-md-3 bg-light pt-3">
-                <h5>Search for a City:</h5>
-                <form>
+        <!-- Weather Content Container -->
 
-                    <!-- Search bar and button cdn styling -->
-                    <div class="form-group input-group">
-                        <input type="text" class="form-control" id="search-city" placeholder="Type Your City Here">
-                        <div class="input-group-append">
-                            <button class="btn btn-info" type="button" id="search-city-button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- Search History container -->
-                <div class="card">
-                    <ul class="list-group list-group-flush" id="search-history-list">
-
-                    </ul>
-                    <button class="btn btn-sm btn-secondary" id="clear-history">Clear Search History</button>
-                </div>
+        <div class="col-12 col-md-9 hide" id="weather-content">
+          <div class="row">
+            <div class="col-12">
+              <div class="city-info border rounded my-3 px-3 py-3">
+                <h2 id="current-city">
+                  Info for your City
+                  <small class="text-muted" id="current-date"></small>
+                </h2>
+                <p class="mb-0">Tempurature: <span id="current-temp"></span></p>
+                <p class="mb-0">
+                  Humidity: <span id="current-humidity"></span>
+                </p>
+                <p class="mb-0">
+                  Wind Speed: <span id="current-wind-speed"></span>
+                </p>
+                <p>UV Index: <span id="uv-index"></span></p>
+              </div>
             </div>
+          </div>
 
-            <!-- Weather Content Container -->
-            <div class="col-12 mol-md-9 hide" id="weather-content">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="city-info border rounded my-3 px-3 py-3">
-                            <h2 id="current-city">Info for your City <small class="text-muted" id="current-date"></small></h2>
-                            <p class="mb-0">Tempurature: <span id="current-temp"></span></p>
-                            <p class="mb-0">Humidity: <span id="current-humidity"></span></p>
-                            <p class="mb-0">Wind Speed: <span id="current-wind-speed"></span></p>
-                            <p>UV Index: <span id="uv-index"></span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Forecast Data Container -->
-                <div class="row">
-                    <div class="col-12">
-                        <h3>5-Day Forecast</h3>
-
-                    </div>
-                </div>
-
-                <!-- Forecast Card Container -->
-                <div class="row" id="five-day-forecast">
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Date</h5>
-                                <i class="fa fa-sun"></i>
-                                <p class="card-text">Temp: </p>
-                                <p class="card-text">Humidity: </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <!-- Forecast Data Container -->
+          <div class="row">
+            <div class="col-12">
+              <h3>5-Day Forecast</h3>
             </div>
+          </div>
+
+          <!-- Forecast Card Container -->
+          <div class="row" id="five-day-forecast">
+            <div class="col-2">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Date</h5>
+                  <i class="fa fa-sun"></i>
+                  <p class="card-text">Temp:</p>
+                  <p class="card-text">Humidity:</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
